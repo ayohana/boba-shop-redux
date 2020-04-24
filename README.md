@@ -1,68 +1,81 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align=center>
 
-## Available Scripts
+# [Boba Shop](https://github.com/ayohana/boba-shop-react.git)
 
-In the project directory, you can run:
+#### React Fundamentals Exercise for [Epicodus](https://www.epicodus.com/), 04.24.2020
 
-### `npm start`
+#### By **Adela Darmansyah**
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[About](#About) | [User Stories](#User-Stories) | [Screenshots](#Screenshots) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+![GitHub](https://img.shields.io/github/license/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ayohana/boba-shop-react/master?color=%23DE98B2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge)
 
-### `npm test`
+</div>
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About
 
-### `npm run build`
+**This is a web application for a boba shop manager to keep track of their supplies of flavor powder.** The manager/user will be able to enter a new supply of flavor powder. The manager will also be able to keep track of the remaining number of servings left for each flavor.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Stories
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+* As the manager, I want to see a list of all available flavor powders. For each flavor, I want to see its flavor, type of flavor, brand, price and weight.
+* As the manager, I want to submit a form to add a new supply of flavor powder to a list.
+* As the manager, I want to be able to click on a flavor to see its detail page.
+* As the manager, I want to see how many servings are left in each flavor. Based on our usage overall, 1 kg (2.2 lbs) of powder is enough to make 50 servings.
+* As the manager, I want to be able to click a button next to a flavor whenever I sell a serving of it. This should decrease the number of servings lefts by 1. 
+* As the developer, I want to make sure the remaining number of servings should not be able to go below 0.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screenshots
+<!-- 
+Maximized window view:
 
-### `npm run eject`
+<img style="width:600px" src="./public/img/app-screenshot.jpg">
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Minimized window view:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<img style="width:600px" src="./public/img/small-window-screenshot.png"> -->
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## React Component Diagram
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<!-- Sample layout:
 
-## Learn More
+<img style="width:600px" src="./public/img/sample-layout.jpg">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Component Diagram:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img style="width:600px" src="./public/img/component-diagram.jpg"> -->
 
-### Code Splitting
+## Installation Instructions
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* Clone this [repository](https://github.com/ayohana/boba-shop-react.git)
 
-### Analyzing the Bundle Size
+* Open the `Command Line Interface` and enter the following:
+  * `cd boba-shop-react` to navigate into the repository.
+  * `npm install` to install all necessary plug-ins.
+  * `npm start` to start the application.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Known Bugs
 
-### Making a Progressive Web App
+No known bugs at this time.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+## Technologies Used
 
-### Advanced Configuration
+* HTML
+* CSS
+* JavaScript
+* React
+* Draw.io
+* Markdown
+* _npm*_
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+_*Check out `package.json` file to see the complete list of all plug-ins._
 
-### Deployment
+## Support and Contact Details
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Feel free to provide feedback via email: adela.yohana@gmail.com.
 
-### `npm run build` fails to minify
+### License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This application is licensed under the MIT license.
+
+Copyright (c) 2020 **Adela Darmansyah**
