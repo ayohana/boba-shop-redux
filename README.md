@@ -6,7 +6,7 @@
 
 #### By **Adela Darmansyah**
 
-[About](#About) | [User Stories](#User-Stories) | [Screenshots](#Screenshots) | [Component Diagram](##React-Component-Diagram) | [Installation](#Installation-Instructions) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
+[About](#About) | [User Stories](#User-Stories) | [Component Diagram](##React-Component-Diagram) | [Screenshots](#Screenshots) | [Installation](#Installation-Instructions) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
 
 ![GitHub](https://img.shields.io/github/license/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ayohana/boba-shop-react/master?color=%23DE98B2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge)
 
@@ -25,6 +25,12 @@
 * As the manager, I want to be able to click a button next to a flavor whenever I sell a serving of it. This should decrease the number of servings lefts by 1. 
 * As the developer, I want to make sure the remaining number of servings should not be able to go below 0.
 
+## React Component Diagram
+
+<div align=center>
+  <img style="width:700px" src="./public/boba-shop-component-diagram.png">
+</div>
+
 ## Screenshots
 <!-- 
 Maximized window view:
@@ -34,12 +40,6 @@ Maximized window view:
 Minimized window view:
 
 <img style="width:600px" src="./public/img/small-window-screenshot.png"> -->
-
-## React Component Diagram
-
-<div align=center>
-  <img style="width:700px" src="./public/boba-shop-component-diagram.png">
-</div>
 
 ## Installation Instructions
 
