@@ -31,8 +31,11 @@ function Flavor(props) {
       servings: props.servings - 1,
       id: props.id,
     }
-    props.whenMinusClicked(editedServing);
-    console.log(editedServing);
+    if (editedServing.servings < 0) {
+      props.whenOutOfServings();
+    } else {
+      props.whenMinusClicked(editedServing);
+    }
   };
 
   return (
@@ -58,7 +61,8 @@ Flavor.propTypes = {
   servings: PropTypes.number,
   id: PropTypes.string,
   whenFlavorClicked: PropTypes.func,
-  whenMinusClicked: PropTypes.func
+  whenMinusClicked: PropTypes.func,
+  whenOutOfServings: PropTypes.func
 };
 
 export default Flavor;

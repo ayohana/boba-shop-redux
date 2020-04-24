@@ -41,7 +41,8 @@ class InventoryControl extends React.Component {
       masterFlavorList: masterFlavorList,
       displayList: true,
       displayForm: false,
-      selectedFlavor: null
+      selectedFlavor: null,
+      announce: ""
     };
   }
 
@@ -49,7 +50,8 @@ class InventoryControl extends React.Component {
     this.setState({
       displayList: false,
       displayForm: true,
-      selectedFlavor: null
+      selectedFlavor: null,
+      announce: ""
     });
   }
 
@@ -57,7 +59,8 @@ class InventoryControl extends React.Component {
     this.setState({
       displayList: true,
       displayForm: false,
-      selectedFlavor: null
+      selectedFlavor: null,
+      announce: ""
     });
   }
 
@@ -66,7 +69,8 @@ class InventoryControl extends React.Component {
     this.setState({
       displayList: true,
       displayForm: false,
-      selectedFlavor: selectedFlavor
+      selectedFlavor: selectedFlavor,
+      announce: ""
     });
   }
 
@@ -76,12 +80,12 @@ class InventoryControl extends React.Component {
       masterFlavorList: newMasterFlavorList,
       displayList: true,
       displayForm: false,
-      selectedFlavor: null
+      selectedFlavor: null,
+      announce: ""
     });
   }
 
   handleMinusServing = (flavorToEdit) => {
-    console.log("handle reached!");
     const editedMasterFlavorList = this.state.masterFlavorList
       .filter(flavor => flavor.id !== flavorToEdit.id)
       .concat(flavorToEdit);
@@ -89,8 +93,15 @@ class InventoryControl extends React.Component {
       masterFlavorList: editedMasterFlavorList,
       displayList: true,
       displayForm: false,
-      selectedFlavor: null
+      selectedFlavor: null,
+      announce: ""
     });
+  }
+
+  handleOutOfServings = () => {
+    this.setState({
+      announce: "No more servings remaining. Please restock."
+    })
   }
 
   render(){
@@ -113,20 +124,20 @@ class InventoryControl extends React.Component {
           masterFlavorList={this.state.masterFlavorList}
           onFlavorSelection={this.handleDisplayDetails}
           onMinusSelection={this.handleMinusServing}
+          onOutOfServings={this.handleOutOfServings}
         />;
       this.state.displayForm = false;
     }
 
     return (
       <React.Fragment>
-        <h3>This is InventoryControl</h3>
+        <span><p>{this.state.announce}</p></span>
         <button onClick={this.handleDisplayForm}>New Supply</button>
         <button onClick={this.handleDisplayList}>All Flavors</button>
         {currentlyVisibleState}
       </React.Fragment>
     );
   }
-
 }
 
 export default InventoryControl;
