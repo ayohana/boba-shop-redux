@@ -9,7 +9,8 @@ const masterFlavorList = [
     brand: "GreenMax",
     price: "14.99",
     weightPurchased: 1.5,
-    servings: 3
+    servings: 3,
+    id: "firstrandomstring"
   },
   {
     name: "Banana Milk Tea",
@@ -17,7 +18,8 @@ const masterFlavorList = [
     brand: "Bubble Tea Supply",
     price: "19.50",
     weightPurchased: 2.2,
-    servings: 50
+    servings: 50,
+    id: "secondrandomstring"
   },
   {
     name: "Mocha Milk Tea",
@@ -25,7 +27,8 @@ const masterFlavorList = [
     brand: "Bossen",
     price: "10.95",
     weightPurchased: 2.2,
-    servings: 50
+    servings: 50,
+    id: "thirdrandomstring"
   },
 ];
 
@@ -54,21 +57,36 @@ class InventoryControl extends React.Component {
     });
   }
 
+  handleNewFlavorSubmission = (newFlavor) => {
+    const newMasterFlavorList = this.state.masterFlavorList.concat(newFlavor);
+    this.setState({
+      masterFlavorList: newMasterFlavorList,
+      displayList: true,
+      displayForm: false
+    });
+  }
+
   render(){
 
     let currentlyVisibleState = null;
 
     if (this.state.displayForm) {
-      currentlyVisibleState = <NewFlavorForm />
+      currentlyVisibleState = 
+        <NewFlavorForm 
+          onNewFlavorCreation={this.handleNewFlavorSubmission} 
+        />
     } else if (this.state.displayList) {
-      currentlyVisibleState = <FlavorList masterFlavorList={this.state.masterFlavorList}/>;
+      currentlyVisibleState = 
+        <FlavorList 
+          masterFlavorList={this.state.masterFlavorList}
+        />;
       this.state.displayForm = false;
     }
 
     return (
       <React.Fragment>
         <h3>This is InventoryControl</h3>
-        <button onClick={this.handleDisplayForm}>Add New Flavor</button>
+        <button onClick={this.handleDisplayForm}>New Supply</button>
         <button onClick={this.handleDisplayList}>All Flavors</button>
         {currentlyVisibleState}
       </React.Fragment>
