@@ -20,12 +20,27 @@ const textStyle = {
 };
 
 function Flavor(props) {
+
+  const handleMinusServing = () => {
+    const editedServing = {
+      name: props.name,
+      type: props.type,
+      brand: props.brand,
+      price: props.price,
+      weightPurchased: props.weightPurchased,
+      servings: props.servings - 1,
+      id: props.id,
+    }
+    props.whenMinusClicked(editedServing);
+    console.log(editedServing);
+  };
+
   return (
     <React.Fragment>
-      <div onClick={() => props.whenFlavorClicked(props.id)} style={flavorStyle}>
+      <div style={flavorStyle}>
         <h4>
-          <img src={minusIcon} style={minusIconStyle} />
-          <span style={textStyle}>
+          <img onClick={handleMinusServing} src={minusIcon} style={minusIconStyle} />
+          <span onClick={() => props.whenFlavorClicked(props.id)} style={textStyle}>
             {props.name} | Remaining servings: {props.servings}
           </span>
         </h4>
@@ -42,7 +57,8 @@ Flavor.propTypes = {
   weightPurchased: PropTypes.number,
   servings: PropTypes.number,
   id: PropTypes.string,
-  whenFlavorClicked: PropTypes.func
+  whenFlavorClicked: PropTypes.func,
+  whenMinusClicked: PropTypes.func
 };
 
 export default Flavor;

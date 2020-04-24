@@ -80,6 +80,19 @@ class InventoryControl extends React.Component {
     });
   }
 
+  handleMinusServing = (flavorToEdit) => {
+    console.log("handle reached!");
+    const editedMasterFlavorList = this.state.masterFlavorList
+      .filter(flavor => flavor.id !== flavorToEdit.id)
+      .concat(flavorToEdit);
+    this.setState({
+      masterFlavorList: editedMasterFlavorList,
+      displayList: true,
+      displayForm: false,
+      selectedFlavor: null
+    });
+  }
+
   render(){
 
     let currentlyVisibleState = null;
@@ -99,6 +112,7 @@ class InventoryControl extends React.Component {
         <FlavorList 
           masterFlavorList={this.state.masterFlavorList}
           onFlavorSelection={this.handleDisplayDetails}
+          onMinusSelection={this.handleMinusServing}
         />;
       this.state.displayForm = false;
     }
