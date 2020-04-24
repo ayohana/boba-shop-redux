@@ -28,7 +28,7 @@
 ## React Component Diagram
 
 <div align=center>
-  <img style="width:700px" src="./public/boba-shop-component-diagram.png">
+  <img style="width:500px" src="./public/boba-shop-component-diagram.png">
 </div>
 
 ## Screenshots
