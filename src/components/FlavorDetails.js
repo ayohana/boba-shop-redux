@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 const flavorStyle = {
   backgroundColor: "#0F4C81",
@@ -23,5 +24,9 @@ function FlavorDetails(props){
     </React.Fragment>
   );
 }
+
+FlavorDetails.propTypes = {
+  flavor: PropTypes.object
+};
 
 export default FlavorDetails;
