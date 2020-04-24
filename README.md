@@ -6,7 +6,7 @@
 
 #### By **Adela Darmansyah**
 
-[About](#About) | [User Stories](#User-Stories) | [Screenshots](#Screenshots) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
+[About](#About) | [User Stories](#User-Stories) | [Screenshots](#Screenshots) | [Component Diagram](##React-Component-Diagram) | [Installation](#Installation-Instructions) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
 
 ![GitHub](https://img.shields.io/github/license/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ayohana/boba-shop-react/master?color=%23DE98B2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge)
 
@@ -37,13 +37,9 @@ Minimized window view:
 
 ## React Component Diagram
 
-<!-- Sample layout:
-
-<img style="width:600px" src="./public/img/sample-layout.jpg">
-
-Component Diagram:
-
-<img style="width:600px" src="./public/img/component-diagram.jpg"> -->
+<div align=center>
+  <img style="width:700px" src="./public/boba-shop-component-diagram.png">
+</div>
 
 ## Installation Instructions
 
