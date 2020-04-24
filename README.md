@@ -18,7 +18,7 @@
 
 ## User Stories
 
-* As the manager, I want to see a list of all available flavor powders. For each flavor, I want to see its flavor, type of flavor, brand, price and weight.
+* As the manager, I want to see a list of all available flavor powders. For each flavor, I want to see its flavor, type of flavor, brand, price, weight of purchase and remaining number of servings.
 * As the manager, I want to submit a form to add a new supply of flavor powder to a list.
 * As the manager, I want to be able to click on a flavor to see its detail page.
 * As the manager, I want to see how many servings are left in each flavor. Based on our usage overall, 1 kg (2.2 lbs) of powder is enough to make 50 servings.
