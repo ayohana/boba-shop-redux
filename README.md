@@ -22,7 +22,7 @@
 * As the manager, I want to submit a form to add a new supply of flavor powder to a list.
 * As the manager, I want to be able to click on a flavor to see its detail page.
 * As the manager, I want to see how many servings are left in each flavor. Based on our usage overall, 1 kg (2.2 lbs) of powder is enough to make 50 servings.
-* As the manager, I want to be able to click a button next to a flavor whenever I sell a serving of it. This should decrease the number of servings lefts by 1. 
+* As the manager, I want to be able to click a button next to a flavor whenever I sell a serving of it. This should decrease the number of servings left by 1. 
 * As the developer, I want to make sure the remaining number of servings should not be able to go below 0.
 * As the developer, I want the application to automatically generate the number of servings based on new supply's weight input.
 
