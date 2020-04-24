@@ -1,6 +1,7 @@
 import React from 'react';
 import FlavorList from './FlavorList';
 import NewFlavorForm from './NewFlavorForm';
+import FlavorDetails from './FlavorDetails';
 
 const masterFlavorList = [
   {
@@ -39,21 +40,33 @@ class InventoryControl extends React.Component {
     this.state = {
       masterFlavorList: masterFlavorList,
       displayList: true,
-      displayForm: false
+      displayForm: false,
+      selectedFlavor: null
     };
   }
 
   handleDisplayForm = () => {
     this.setState({
       displayList: false,
-      displayForm: true
+      displayForm: true,
+      selectedFlavor: null
     });
   }
 
   handleDisplayList = () => {
     this.setState({
       displayList: true,
-      displayForm: false
+      displayForm: false,
+      selectedFlavor: null
+    });
+  }
+
+  handleDisplayDetails = (id) => {
+    const selectedFlavor = this.state.masterFlavorList.filter(flavor => flavor.id === id)[0];
+    this.setState({
+      displayList: true,
+      displayForm: false,
+      selectedFlavor: selectedFlavor
     });
   }
 
@@ -62,7 +75,8 @@ class InventoryControl extends React.Component {
     this.setState({
       masterFlavorList: newMasterFlavorList,
       displayList: true,
-      displayForm: false
+      displayForm: false,
+      selectedFlavor: null
     });
   }
 
@@ -75,10 +89,16 @@ class InventoryControl extends React.Component {
         <NewFlavorForm 
           onNewFlavorCreation={this.handleNewFlavorSubmission} 
         />
+    } else if (this.state.selectedFlavor != null) {
+      currentlyVisibleState =
+      <FlavorDetails 
+        flavor={this.state.selectedFlavor}
+      />
     } else if (this.state.displayList) {
       currentlyVisibleState = 
         <FlavorList 
           masterFlavorList={this.state.masterFlavorList}
+          onFlavorSelection={this.handleDisplayDetails}
         />;
       this.state.displayForm = false;
     }

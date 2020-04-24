@@ -3,20 +3,18 @@ import PropTypes from "prop-types";
 
 const flavorStyle = {
   backgroundColor: "#0F4C81",
-  borderColor: "#F1F1E6",
-  borderStyle: "solid",
-  padding: "5px",
+  borderColor: "#887456",
+  borderStyle: "dotted",
+  padding: "20px",
+  margin: "10px",
   color: "#DBA11C"
 };
 
 function Flavor(props) {
   return (
     <React.Fragment>
-      <div style={flavorStyle}>
-        <h4>{props.type} | {props.name}</h4>
-        <p>Brand: {props.brand}</p>
-        <p>Price: ${props.price} for {props.weightPurchased}lbs</p>
-        <p>Remaining servings: {props.servings}</p>
+      <div onClick={() => props.whenFlavorClicked(props.id)} style={flavorStyle}>
+        <h4>{props.name} | Remaining servings: {props.servings}</h4>
       </div>
     </React.Fragment>
   );
@@ -28,7 +26,9 @@ Flavor.propTypes = {
   brand: PropTypes.string,
   price: PropTypes.string,
   weightPurchased: PropTypes.number,
-  servings: PropTypes.number
+  servings: PropTypes.number,
+  id: PropTypes.string,
+  whenFlavorClicked: PropTypes.func
 };
 
 export default Flavor;
