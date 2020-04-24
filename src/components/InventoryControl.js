@@ -1,5 +1,6 @@
 import React from 'react';
 import FlavorList from './FlavorList';
+import NewFlavorForm from './NewFlavorForm';
 
 const masterFlavorList = [
   {
@@ -33,15 +34,43 @@ class InventoryControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      masterFlavorList: masterFlavorList
+      masterFlavorList: masterFlavorList,
+      displayList: true,
+      displayForm: false
     };
   }
 
+  handleDisplayForm = () => {
+    this.setState({
+      displayList: false,
+      displayForm: true
+    });
+  }
+
+  handleDisplayList = () => {
+    this.setState({
+      displayList: true,
+      displayForm: false
+    });
+  }
+
   render(){
+
+    let currentlyVisibleState = null;
+
+    if (this.state.displayForm) {
+      currentlyVisibleState = <NewFlavorForm />
+    } else if (this.state.displayList) {
+      currentlyVisibleState = <FlavorList masterFlavorList={this.state.masterFlavorList}/>;
+      this.state.displayForm = false;
+    }
+
     return (
       <React.Fragment>
         <h3>This is InventoryControl</h3>
-        <FlavorList masterFlavorList={this.state.masterFlavorList}/>
+        <button onClick={this.handleDisplayForm}>Add New Flavor</button>
+        <button onClick={this.handleDisplayList}>All Flavors</button>
+        {currentlyVisibleState}
       </React.Fragment>
     );
   }
