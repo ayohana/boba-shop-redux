@@ -19,6 +19,7 @@ function FlavorList(props) {
           weightPurchased={flavor.weightPurchased}
           servings={flavor.servings}
           id={flavor.id}
+          key={flavor.id}
         />
       )}
     </React.Fragment>

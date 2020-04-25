@@ -29,7 +29,7 @@ function Flavor(props) {
       price: props.price,
       weightPurchased: props.weightPurchased,
       servings: props.servings - 1,
-      id: props.id,
+      id: props.id
     }
     if (editedServing.servings < 0) {
       props.whenOutOfServings();
@@ -42,7 +42,7 @@ function Flavor(props) {
     <React.Fragment>
       <div style={flavorStyle}>
         <h4>
-          <img onClick={handleMinusServing} src={minusIcon} style={minusIconStyle} />
+          <img onClick={handleMinusServing} src={minusIcon} style={minusIconStyle} alt="Decrease Serving by 1" />
           <span onClick={() => props.whenFlavorClicked(props.id)} style={textStyle}>
             {props.name} | Remaining servings: {props.servings}
           </span>

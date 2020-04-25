@@ -21,7 +21,7 @@ function NewFlavorForm(props) {
     <React.Fragment>
       <h1>Add New Supply of Flavor Powder</h1>
       <form onSubmit={handleNewFormSubmission}>
-        <label for="name">
+        <label htmlFor="name">
           Flavor:
         </label>
         <input 
@@ -31,7 +31,7 @@ function NewFlavorForm(props) {
           required
         />
 
-        <label for="type">
+        <label htmlFor="type">
           Type of flavor:
         </label>
         <input 
@@ -41,7 +41,7 @@ function NewFlavorForm(props) {
           required
         />
 
-        <label for="brand">
+        <label htmlFor="brand">
           Brand of supply:
         </label>
         <input 
@@ -51,7 +51,7 @@ function NewFlavorForm(props) {
           required
         />
 
-        <label for="price">
+        <label htmlFor="price">
           Price of purchase:
         </label>
         <input 
@@ -61,7 +61,7 @@ function NewFlavorForm(props) {
           required
         />
 
-        <label for="weightPurchased">
+        <label htmlFor="weightPurchased">
           Weight of purchase (in lbs):
         </label>
         <input 

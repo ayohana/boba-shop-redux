@@ -126,7 +126,6 @@ class InventoryControl extends React.Component {
           onMinusSelection={this.handleMinusServing}
           onOutOfServings={this.handleOutOfServings}
         />;
-      this.state.displayForm = false;
     }
 
     return (
