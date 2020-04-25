@@ -86,9 +86,10 @@ class InventoryControl extends React.Component {
   }
 
   handleMinusServing = (flavorToEdit) => {
-    const editedMasterFlavorList = this.state.masterFlavorList
-      .filter(flavor => flavor.id !== flavorToEdit.id)
-      .concat(flavorToEdit);
+    const findIndex = this.state.masterFlavorList.findIndex(flavor => flavor.id === flavorToEdit.id);
+    console.log(findIndex);
+    const editedMasterFlavorList = this.state.masterFlavorList;
+    editedMasterFlavorList[findIndex] = flavorToEdit;
     this.setState({
       masterFlavorList: editedMasterFlavorList,
       displayList: true,

@@ -34,6 +34,8 @@
 
 ## Screenshots
 
+_Coming up next week!_
+
 <!-- <img style="width:600px" src="./public/img/app-screenshot.jpg"> -->
 
 ## Installation Instructions
