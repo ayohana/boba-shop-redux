@@ -90,22 +90,22 @@ class InventoryControl extends React.Component {
       const copyMasterFlavorList = [...prevState.masterFlavorList];
       const findIndex = copyMasterFlavorList.findIndex(flavor => flavor.id === id);
       const copyFindFlavor = {...copyMasterFlavorList[findIndex]};
-      copyFindFlavor.servings -= 1;
-      copyMasterFlavorList[findIndex] = copyFindFlavor;
-      return {
-        masterFlavorList: copyMasterFlavorList,
-        displayList: true,
-        displayForm: false,
-        selectedFlavor: null,
-        announce: ""
+      if (copyFindFlavor.servings === 0) {
+        return {
+          announce: "No more servings remaining. Please restock."
+        };
+      } else {
+        copyFindFlavor.servings -= 1;
+        copyMasterFlavorList[findIndex] = copyFindFlavor;
+        return {
+          masterFlavorList: copyMasterFlavorList,
+          displayList: true,
+          displayForm: false,
+          selectedFlavor: null,
+          announce: ""
+        };
       }
     });
-  }
-  
-  handleOutOfServings = () => {
-    this.setState({
-      announce: "No more servings remaining. Please restock."
-    })
   }
 
   render(){
@@ -128,7 +128,6 @@ class InventoryControl extends React.Component {
           masterFlavorList={this.state.masterFlavorList}
           onFlavorSelection={this.handleDisplayDetails}
           onMinusSelection={this.handleMinusServing}
-          onOutOfServings={this.handleOutOfServings}
         />;
     }
 
