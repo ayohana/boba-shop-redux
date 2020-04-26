@@ -85,20 +85,23 @@ class InventoryControl extends React.Component {
     });
   }
 
-  handleMinusServing = (flavorToEdit) => {
-    const findIndex = this.state.masterFlavorList.findIndex(flavor => flavor.id === flavorToEdit.id);
-    console.log(findIndex);
-    const editedMasterFlavorList = this.state.masterFlavorList;
-    editedMasterFlavorList[findIndex] = flavorToEdit;
-    this.setState({
-      masterFlavorList: editedMasterFlavorList,
-      displayList: true,
-      displayForm: false,
-      selectedFlavor: null,
-      announce: ""
+  handleMinusServing = (id) => {
+    this.setState((prevState) => { 
+      const copyMasterFlavorList = [...prevState.masterFlavorList];
+      const findIndex = copyMasterFlavorList.findIndex(flavor => flavor.id === id);
+      const copyFindFlavor = {...copyMasterFlavorList[findIndex]};
+      copyFindFlavor.servings -= 1;
+      copyMasterFlavorList[findIndex] = copyFindFlavor;
+      return {
+        masterFlavorList: copyMasterFlavorList,
+        displayList: true,
+        displayForm: false,
+        selectedFlavor: null,
+        announce: ""
+      }
     });
   }
-
+  
   handleOutOfServings = () => {
     this.setState({
       announce: "No more servings remaining. Please restock."

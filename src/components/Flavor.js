@@ -21,20 +21,28 @@ const textStyle = {
 
 function Flavor(props) {
 
+  // const handleMinusServing = () => {
+  //   const editedServing = {
+  //     name: props.name,
+  //     type: props.type,
+  //     brand: props.brand,
+  //     price: props.price,
+  //     weightPurchased: props.weightPurchased,
+  //     servings: props.servings - 1,
+  //     id: props.id
+  //   }
+  //   if (editedServing.servings < 0) {
+  //     props.whenOutOfServings();
+  //   } else {
+  //     props.whenMinusClicked(editedServing);
+  //   }
+  // };
+
   const handleMinusServing = () => {
-    const editedServing = {
-      name: props.name,
-      type: props.type,
-      brand: props.brand,
-      price: props.price,
-      weightPurchased: props.weightPurchased,
-      servings: props.servings - 1,
-      id: props.id
-    }
-    if (editedServing.servings < 0) {
+    if (props.servings <= 0) {
       props.whenOutOfServings();
     } else {
-      props.whenMinusClicked(editedServing);
+      props.whenMinusClicked(props.id);
     }
   };
 
