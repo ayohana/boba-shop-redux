@@ -7,3 +7,17 @@ export const toggleDisplayForm = () => ({
 export const toggleDisplayList = () => ({
   type: c.TOGGLE_DISPLAY_LIST
 });
+
+export const addOrUpdateFlavor = (flavor) => {
+  const { name, type, brand, price, weightPurchased, servings, id } = flavor;
+  return {
+    type: c.ADD_OR_UPDATE_FLAVOR,
+    name: name,
+    type: type,
+    brand: brand,
+    price: price,
+    weightPurchased: weightPurchased,
+    servings: servings,
+    id: id
+  }
+}
