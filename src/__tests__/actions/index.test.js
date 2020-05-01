@@ -18,7 +18,7 @@ describe('help queue actions', () => {
 
   it('addOrUpdateFlavor should create ADD_OR_UPDATE_FLAVOR action', () => {
     const testId = v4();
-    expect(a.addOrUpdateFlavor({
+    const newFlavorData = {
       name: "Mocha Milk Tea",
       category: "Coffee Milk Tea",
       brand: "Bossen",
@@ -26,7 +26,8 @@ describe('help queue actions', () => {
       weightPurchased: 2.2,
       servings: 50,
       id: testId
-    })).toEqual({
+    };
+    expect(a.addOrUpdateFlavor(newFlavorData)).toEqual({
       type: c.ADD_OR_UPDATE_FLAVOR,
       name: "Mocha Milk Tea",
       category: "Coffee Milk Tea",
@@ -34,6 +35,14 @@ describe('help queue actions', () => {
       price: "10.95",
       weightPurchased: 2.2,
       servings: 50,
+      id: testId
+    });
+  });
+
+  it('selectFlavor should create FLAVOR_DETAILS action', () => {
+    const testId = v4();
+    expect(a.selectFlavor(testId)).toEqual({
+      type: c.FLAVOR_DETAILS,
       id: testId
     });
   });

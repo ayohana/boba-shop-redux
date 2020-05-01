@@ -20,4 +20,18 @@ export const addOrUpdateFlavor = (flavor) => {
     servings: servings,
     id: id
   }
-}
+};
+
+export const deleteFlavor = (id) => {
+  return {
+    type: c.DELETE_FLAVOR,
+    id: id
+  }
+};
+
+export const selectFlavor = (id) => {
+  return {
+    type: c.FLAVOR_DETAILS,
+    id: id
+  }
+};

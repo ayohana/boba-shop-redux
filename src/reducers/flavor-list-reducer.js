@@ -29,6 +29,17 @@ export default (state = initialState, action) => {
       );
       return newState;
 
+    case c.DELETE_FLAVOR:
+      const updatedMasterFlavorList = { ...state.masterFlavorList };
+      delete updatedMasterFlavorList[id];
+      const updatedState = Object.assign(
+        {},
+        state, {
+          masterFlavorList: updatedMasterFlavorList
+        }
+      );
+      return updatedState;
+
     default:
       return state;
   }

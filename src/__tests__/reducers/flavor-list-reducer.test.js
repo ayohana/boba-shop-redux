@@ -19,7 +19,7 @@ describe('flavorListReducer', () => {
     id: thirdId
   }
 
-  // DEFAULT STATE WITH SEED DATA
+  // TEST DEFAULT STATE WITH SEEDED DATA
   const testState = {
     masterFlavorList: {
       [firstId] : {
@@ -90,7 +90,63 @@ describe('flavorListReducer', () => {
         id: thirdId
       }
     };
-    
+    expect(actual).toEqual(result);
+  });
+
+  test('Should successfully update an existing data using ADD_OR_UPDATE_FLAVOR action', () => {
+    action = {
+      type: c.ADD_OR_UPDATE_FLAVOR,
+      name: "Green Tea",
+      category: "Fresh Tea",
+      brand: "ITOEN",
+      price: "25.89",
+      weightPurchased: 2.2,
+      servings: 25,
+      id: firstId
+    };
+
+    const actual = flavorListReducer(testState, action).masterFlavorList;
+    const result = {
+      [firstId] : {
+        name: "Green Tea",
+        category: "Fresh Tea",
+        brand: "ITOEN",
+        price: "25.89",
+        weightPurchased: 2.2,
+        servings: 25,
+        id: firstId
+      },
+      [secondId] :{
+        name: "Banana Milk Tea",
+        category: "Fruit Milk Tea",
+        brand: "Bubble Tea Supply",
+        price: "19.50",
+        weightPurchased: 2.2,
+        servings: 10,
+        id: secondId
+      }
+    };
+    expect(actual).toEqual(result);
+  });
+
+  test('Should successfully delete a flavor', () => {
+    action = {
+      type: c.DELETE_FLAVOR,
+      id: firstId
+    };
+
+    const actual = flavorListReducer(testState, action).masterFlavorList;
+    const result = {
+      [secondId] :{
+        name: "Banana Milk Tea",
+        category: "Fruit Milk Tea",
+        brand: "Bubble Tea Supply",
+        price: "19.50",
+        weightPurchased: 2.2,
+        servings: 10,
+        id: secondId
+      }
+    };
     expect(actual).toEqual(result);
   });
 
