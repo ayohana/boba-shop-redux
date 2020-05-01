@@ -35,10 +35,13 @@
 ## React Component Diagram
 
 <details>
+
   <summary>Click here to see previous component diagram created for React.</summary>
+
   <div align=center>
     <img style="width:500px" src="./public/boba-shop-component-diagram.png">
   </div>
+
 </details>
 
 ## Screenshots
