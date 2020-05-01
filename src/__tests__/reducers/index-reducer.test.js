@@ -43,9 +43,9 @@ describe("rootReducer", () => {
 
   test('Should return default state if no action type is recognized', () => {
     expect(rootReducer({}, { type: null })).toEqual({
-      displayForm: initialState,
-      displayList: initialState,
-      masterFlavorList: initialState,
+      displayForm: initialState.displayForm,
+      displayList: initialState.displayList,
+      masterFlavorList: initialState.masterFlavorList,
       selectedFlavor: initialState.selectedFlavor
     });
   });

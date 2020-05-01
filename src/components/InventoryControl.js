@@ -2,6 +2,9 @@ import React from 'react';
 import FlavorList from './FlavorList';
 import NewFlavorForm from './NewFlavorForm';
 import FlavorDetails from './FlavorDetails';
+import * as a from '../actions/index';
+import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 
 const masterFlavorList = [
   {
@@ -39,7 +42,6 @@ class InventoryControl extends React.Component {
     super(props);
     this.state = {
       masterFlavorList: masterFlavorList,
-      displayList: true,
       displayForm: false,
       selectedFlavor: null,
       announce: ""
@@ -48,7 +50,7 @@ class InventoryControl extends React.Component {
 
   handleDisplayForm = () => {
     this.setState({
-      displayList: false,
+      // displayList: false,
       displayForm: true,
       selectedFlavor: null,
       announce: ""
@@ -57,17 +59,19 @@ class InventoryControl extends React.Component {
 
   handleDisplayList = () => {
     this.setState({
-      displayList: true,
+      // displayList: true,
       displayForm: false,
       selectedFlavor: null,
       announce: ""
     });
+    const { dispatch } = this.props;
+    dispatch(a.toggleDisplayList);
   }
 
   handleDisplayDetails = (id) => {
     const selectedFlavor = this.state.masterFlavorList.filter(flavor => flavor.id === id)[0];
     this.setState({
-      displayList: true,
+      // displayList: true,
       displayForm: false,
       selectedFlavor: selectedFlavor,
       announce: ""
@@ -78,7 +82,7 @@ class InventoryControl extends React.Component {
     const newMasterFlavorList = this.state.masterFlavorList.concat(newFlavor);
     this.setState({
       masterFlavorList: newMasterFlavorList,
-      displayList: true,
+      // displayList: true,
       displayForm: false,
       selectedFlavor: null,
       announce: ""
@@ -99,7 +103,7 @@ class InventoryControl extends React.Component {
         copyMasterFlavorList[findIndex] = copyFindFlavor;
         return {
           masterFlavorList: copyMasterFlavorList,
-          displayList: true,
+          // displayList: true,
           displayForm: false,
           selectedFlavor: null,
           announce: ""
@@ -141,5 +145,17 @@ class InventoryControl extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    displayForm: state.displayForm,
+    displayList: state.displayList,
+    masterFlavorList: state.masterFlavorList,
+    selectedFlavor: state.selectedFlavor,
+    announce: state.announce
+  }
+}
+
+InventoryControl = connect(mapStateToProps)(InventoryControl);
 
 export default InventoryControl;
