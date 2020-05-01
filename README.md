@@ -1,14 +1,14 @@
 <div align=center>
 
-# [Boba Shop](https://github.com/ayohana/boba-shop-react.git)
+# [Boba Shop](https://github.com/ayohana/boba-shop-redux.git)
 
-#### React Fundamentals Exercise for [Epicodus](https://www.epicodus.com/), 04.24.2020
+#### React Redux Fundamentals Exercise for [Epicodus](https://www.epicodus.com/), 05.01.2020
 
 #### By **Adela Darmansyah**
 
-[About](#About) | [User Stories](#User-Stories) | [Component Diagram](##React-Component-Diagram) | [Screenshots](#Screenshots) | [Installation](#Installation-Instructions) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
+[About](#About) | [User Stories](#User-Stories) | [Redux Component Diagram](##Redux-Component-Diagram) | [React Component Diagram](##React-Component-Diagram) | [Screenshots](#Screenshots) | [Installation](#Installation-Instructions) | [Bugs](#Known-Bugs) | [Technologies](#Technologies-Used) | [Contact](#Support-and-Contact-Details)
 
-![GitHub](https://img.shields.io/github/license/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ayohana/boba-shop-react/master?color=%23DE98B2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/ayohana/boba-shop-react?color=%23DE98B2&style=for-the-badge)
+![GitHub](https://img.shields.io/github/license/ayohana/boba-shop-redux?color=%23DE98B2&style=for-the-badge) ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/ayohana/boba-shop-redux/master?color=%23DE98B2&style=for-the-badge) ![GitHub language count](https://img.shields.io/github/languages/count/ayohana/boba-shop-redux?color=%23DE98B2&style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/ayohana/boba-shop-redux?color=%23DE98B2&style=for-the-badge)
 
 </div>
 
@@ -26,24 +26,33 @@
 * As the developer, I want to make sure the remaining number of servings should not be able to go below 0.
 * As the developer, I want the application to automatically generate the number of servings based on new supply's weight input.
 
-## React Component Diagram
+## Redux Component Diagram
 
 <div align=center>
-  <img style="width:500px" src="./public/boba-shop-component-diagram.png">
+  <img style="width:500px" src="./public/boba-shop-redux-component-diagram.png">
 </div>
+
+## React Component Diagram
+
+<details>
+  <summary>Click here to see previous component diagram created for React.</summary>
+  <div align=center>
+    <img style="width:500px" src="./public/boba-shop-component-diagram.png">
+  </div>
+</details>
 
 ## Screenshots
 
-_Coming up next week!_
+<!-- _Coming up next week!_ -->
 
 <!-- <img style="width:600px" src="./public/img/app-screenshot.jpg"> -->
 
 ## Installation Instructions
 
-* Clone this [repository](https://github.com/ayohana/boba-shop-react.git)
+* Clone this [repository](https://github.com/ayohana/boba-shop-redux.git)
 
 * Open the `Command Line Interface` and enter the following:
-  * `cd boba-shop-react` to navigate into the repository.
+  * `cd boba-shop-redux` to navigate into the repository.
   * `npm install` to install all necessary plug-ins.
   * `npm start` to start the application.
 
