@@ -10,7 +10,6 @@ export default (state = initialState, action) => {
           displayForm: !state.displayForm
         }
       );
-      console.log(newState);
       return newState;
     default:
       return state;

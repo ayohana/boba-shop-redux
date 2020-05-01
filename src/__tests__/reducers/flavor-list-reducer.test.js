@@ -37,7 +37,7 @@ describe('flavorListReducer', () => {
         brand: "Bubble Tea Supply",
         price: "19.50",
         weightPurchased: 2.2,
-        servings: 10,
+        servings: 0,
         id: secondId
       }
     }
@@ -77,7 +77,7 @@ describe('flavorListReducer', () => {
         brand: "Bubble Tea Supply",
         price: "19.50",
         weightPurchased: 2.2,
-        servings: 10,
+        servings: 0,
         id: secondId
       },
       [thirdId] : {
@@ -122,7 +122,7 @@ describe('flavorListReducer', () => {
         brand: "Bubble Tea Supply",
         price: "19.50",
         weightPurchased: 2.2,
-        servings: 10,
+        servings: 0,
         id: secondId
       }
     };
@@ -143,10 +143,43 @@ describe('flavorListReducer', () => {
         brand: "Bubble Tea Supply",
         price: "19.50",
         weightPurchased: 2.2,
-        servings: 10,
+        servings: 0,
         id: secondId
       }
     };
+    expect(actual).toEqual(result);
+  });
+
+  test('Should decrement number of servings for a specific flavor using DECREMENT_SERVINGS', () => {
+    action = {
+      type: c.DECREMENT_SERVINGS,
+      id: firstId
+    };
+    
+    const actual = flavorListReducer(testState, action).masterFlavorList[firstId].servings;
+    const result = 2;
+    expect(actual).toEqual(result);
+  });
+
+  test('Decrementing a serving of 0 should stay at 0', () => {
+    action = {
+      type: c.DECREMENT_SERVINGS,
+      id: secondId
+    };
+    
+    const actual = flavorListReducer(testState, action).masterFlavorList[secondId].servings;
+    const result = 0;
+    expect(actual).toEqual(result);
+  });
+
+  test('Decrementing a serving of 0 should announce the correct message', () => {
+    action = {
+      type: c.DECREMENT_SERVINGS,
+      id: secondId
+    };
+    
+    const actual = flavorListReducer(testState, action).announce;
+    const result = `No more servings of ${testState.masterFlavorList[secondId].name} remaining. Please restock.`;
     expect(actual).toEqual(result);
   });
 

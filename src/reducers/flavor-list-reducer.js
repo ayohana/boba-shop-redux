@@ -39,6 +39,34 @@ export default (state = initialState, action) => {
         }
       );
       return updatedState;
+    
+    case c.DECREMENT_SERVINGS:
+      let decrementedState
+      if (state.masterFlavorList[id].servings <= 0) {
+        decrementedState = Object.assign(
+          {},
+          state, {
+            announce: `No more servings of ${state.masterFlavorList[id].name} remaining. Please restock.`
+          }
+        );
+      } else {
+        const decrementedMasterFlavorList = Object.assign(
+          {},
+          state.masterFlavorList, {
+            [id] : {
+              servings: state.masterFlavorList[id].servings - 1
+            }
+          }
+        );
+        decrementedState = Object.assign(
+          {},
+          state, {
+            announce: "",
+            masterFlavorList: decrementedMasterFlavorList
+          }
+        );
+      }
+      return decrementedState;
 
     default:
       return state;

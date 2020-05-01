@@ -4,6 +4,8 @@ import { v4 } from 'uuid';
 
 describe('help queue actions', () => {
 
+  const testId = v4();
+
   it('toggleDisplayForm should create TOGGLE_DISPLAY_FORM action', () => {
     expect(a.toggleDisplayForm()).toEqual({
       type: c.TOGGLE_DISPLAY_FORM
@@ -17,7 +19,6 @@ describe('help queue actions', () => {
   });
 
   it('addOrUpdateFlavor should create ADD_OR_UPDATE_FLAVOR action', () => {
-    const testId = v4();
     const newFlavorData = {
       name: "Mocha Milk Tea",
       category: "Coffee Milk Tea",
@@ -39,10 +40,23 @@ describe('help queue actions', () => {
     });
   });
 
+  it('deleteFlavor should create DELETE_FLAVOR action', () => {
+    expect(a.deleteFlavor(testId)).toEqual({
+      type: c.DELETE_FLAVOR,
+      id: testId
+    });
+  });
+
   it('selectFlavor should create FLAVOR_DETAILS action', () => {
-    const testId = v4();
     expect(a.selectFlavor(testId)).toEqual({
       type: c.FLAVOR_DETAILS,
+      id: testId
+    });
+  });
+
+  it('decrementServings should create DECREMENT_SERVINGS action', () => {
+    expect(a.decrementServings(testId)).toEqual({
+      type: c.DECREMENT_SERVINGS,
       id: testId
     });
   });

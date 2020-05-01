@@ -35,3 +35,10 @@ export const selectFlavor = (id) => {
     id: id
   }
 };
+
+export const decrementServings = (id) => {
+  return {
+    type: c.DECREMENT_SERVINGS,
+    id: id
+  }
+}
