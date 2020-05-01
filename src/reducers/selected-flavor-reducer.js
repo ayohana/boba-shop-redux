@@ -1,6 +1,5 @@
 import * as c from '../actions/ActionTypes';
 import initialState from '../initialState';
-import { selectFlavor } from '../actions';
 
 export default (state = initialState, action) => {
 
@@ -16,7 +15,7 @@ export default (state = initialState, action) => {
         }
       )
       return newState;
-      
+
     default:
       return null;
   }

@@ -1,9 +1,17 @@
 import * as c from '../actions/ActionTypes';
+import initialState from '../initialState';
 
-export default (state = false, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case c.TOGGLE_DISPLAY_FORM:
-      return !state;
+      const newState = Object.assign(
+        {},
+        state, {
+          displayForm: !state.displayForm
+        }
+      );
+      console.log(newState);
+      return newState;
     default:
       return state;
     }
