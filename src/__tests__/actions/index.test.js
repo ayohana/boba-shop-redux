@@ -20,7 +20,7 @@ describe('help queue actions', () => {
     const testId = v4();
     expect(a.addOrUpdateFlavor({
       name: "Mocha Milk Tea",
-      type: "Coffee Milk Tea",
+      category: "Coffee Milk Tea",
       brand: "Bossen",
       price: "10.95",
       weightPurchased: 2.2,
@@ -29,7 +29,7 @@ describe('help queue actions', () => {
     })).toEqual({
       type: c.ADD_OR_UPDATE_FLAVOR,
       name: "Mocha Milk Tea",
-      type: "Coffee Milk Tea",
+      category: "Coffee Milk Tea",
       brand: "Bossen",
       price: "10.95",
       weightPurchased: 2.2,

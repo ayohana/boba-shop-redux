@@ -9,11 +9,11 @@ export const toggleDisplayList = () => ({
 });
 
 export const addOrUpdateFlavor = (flavor) => {
-  const { name, type, brand, price, weightPurchased, servings, id } = flavor;
+  const { name, category, brand, price, weightPurchased, servings, id } = flavor;
   return {
     type: c.ADD_OR_UPDATE_FLAVOR,
     name: name,
-    type: type,
+    category: category,
     brand: brand,
     price: price,
     weightPurchased: weightPurchased,
