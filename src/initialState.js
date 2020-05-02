@@ -4,10 +4,9 @@ const firstId = v4();
 const secondId = v4();
 
 export default {
-  displayList: true,
-  displayForm: false,
-  selectedFlavor: null,
   announce: "",
+  displayForm: false,
+  displayList: true,
   masterFlavorList: {
     [firstId] : {
       name: "Black Milk Tea",
@@ -27,5 +26,6 @@ export default {
       servings: 10,
       id: secondId
     }
-  }
+  },
+  selectedFlavor: null
 }

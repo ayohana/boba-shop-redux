@@ -1,22 +1,15 @@
 import * as c from '../actions/ActionTypes';
 import initialState from '../initialState';
 
-export default (state = initialState, action) => {
+export default (state = initialState.selectedFlavor, action) => {
 
-  const { id } = action;
+  const { id, masterFlavorList } = action;
 
   switch (action.type) {
     case c.FLAVOR_DETAILS:
-      const flavorSelected = {...state.masterFlavorList[id]};
-      const newState = Object.assign(
-        {},
-        state, {
-          selectedFlavor: flavorSelected
-        }
-      )
-      return newState;
-
+      const flavorSelected = {...masterFlavorList[id]};
+      return flavorSelected;
     default:
-      return null;
+      return state;
   }
 };

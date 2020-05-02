@@ -29,10 +29,11 @@ export const deleteFlavor = (id) => {
   }
 };
 
-export const selectFlavor = (id) => {
+export const selectFlavor = (id, masterFlavorList) => {
   return {
     type: c.FLAVOR_DETAILS,
-    id: id
+    id: id,
+    masterFlavorList: masterFlavorList
   }
 };
 

@@ -48,9 +48,21 @@ describe('help queue actions', () => {
   });
 
   it('selectFlavor should create FLAVOR_DETAILS action', () => {
-    expect(a.selectFlavor(testId)).toEqual({
+    const testList = {
+      [testId] : { 
+        name: "Mocha Milk Tea",
+        category: "Coffee Milk Tea",
+        brand: "Bossen",
+        price: "10.95",
+        weightPurchased: 2.2,
+        servings: 50,
+        id: testId
+      }
+    };
+    expect(a.selectFlavor(testId, testList)).toEqual({
       type: c.FLAVOR_DETAILS,
-      id: testId
+      id: testId,
+      masterFlavorList: testList
     });
   });
 
