@@ -2,6 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { v4 } from 'uuid';
 
+const headerStyle = {
+  textAlign: "center"
+}
+
 function NewFlavorForm(props) {
 
   function handleNewFormSubmission(event) {
@@ -19,7 +23,7 @@ function NewFlavorForm(props) {
 
   return (
     <React.Fragment>
-      <h1>Add New Supply of Flavor Powder</h1>
+      <h1 style={headerStyle}>Add New Supply of Flavor Powder</h1>
       <form onSubmit={handleNewFormSubmission}>
         <label htmlFor="name">
           Flavor:

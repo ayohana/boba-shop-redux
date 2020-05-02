@@ -2,7 +2,7 @@
 
 # [Boba Shop](https://github.com/ayohana/boba-shop-redux.git)
 
-#### React Redux Fundamentals Exercise for [Epicodus](https://www.epicodus.com/), 05.01.2020
+#### Redux Fundamentals Exercise for [Epicodus](https://www.epicodus.com/), 05.01.2020
 
 #### By **Adela Darmansyah**
 
@@ -46,9 +46,20 @@
 
 ## Screenshots
 
-<!-- _Coming up next week!_ -->
+Homepage:
+<div align=center>
+  <img style="width:400px" src="./public/flavor-list.png">
+</div>
 
-<!-- <img style="width:600px" src="./public/img/app-screenshot.jpg"> -->
+Add a new supply of flavor powder:
+<div align=center>
+  <img style="width:400px" src="./public/new-flavor-form.png">
+</div>
+
+Details of a flavor:
+<div align=center>
+  <img style="width:400px" src="./public/flavor-details.png">
+</div>
 
 ## Installation Instructions
 
@@ -69,6 +80,7 @@ No known bugs at this time.
 * CSS
 * JavaScript
 * React
+* Redux
 * Draw.io
 * Markdown
 * _npm*_
