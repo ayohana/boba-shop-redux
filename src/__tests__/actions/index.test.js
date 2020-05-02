@@ -99,9 +99,11 @@ describe('help queue actions', () => {
 
   it('announce should create ANNOUNCE_OUT_OF_STOCK action', () => {
     const zeroServingsTrue = true;
-    expect(a.announce(zeroServingsTrue)).toEqual({
+    const flavorName = "Black Tea";
+    expect(a.announce(zeroServingsTrue, flavorName)).toEqual({
       type: c.ANNOUNCE_OUT_OF_STOCK,
-      isZeroServings: zeroServingsTrue
+      isZeroServings: zeroServingsTrue,
+      flavorName: flavorName
     });
   });
 

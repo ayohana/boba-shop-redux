@@ -49,7 +49,8 @@ describe("rootReducer", () => {
 
   test('When an action is dispatched, the state of announceReducer should match the root reducer', () => {
     const zeroServingsTrue = true;
-    action = a.announce(zeroServingsTrue);
+    const flavorName = "Black Tea";
+    action = a.announce(zeroServingsTrue, flavorName);
     store.dispatch(action);
     expect(store.getState().announce).toEqual(announceReducer(undefined, action));
   });

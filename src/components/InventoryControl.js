@@ -4,7 +4,6 @@ import NewFlavorForm from './NewFlavorForm';
 import FlavorDetails from './FlavorDetails';
 import * as a from '../actions/index';
 import { connect } from 'react-redux';
-import { PropTypes } from 'prop-types';
 
 function InventoryControl(props){
 
@@ -31,28 +30,14 @@ function InventoryControl(props){
     dispatch(a.resetButton());
   }
 
-  // handleMinusServing = (id) => {
-  //   this.setState((prevState) => { 
-  //     const copyMasterFlavorList = [...prevState.masterFlavorList];
-  //     const findIndex = copyMasterFlavorList.findIndex(flavor => flavor.id === id);
-  //     const copyFindFlavor = {...copyMasterFlavorList[findIndex]};
-  //     if (copyFindFlavor.servings === 0) {
-  //       return {
-  //         announce: "No more servings remaining. Please restock."
-  //       };
-  //     } else {
-  //       copyFindFlavor.servings -= 1;
-  //       copyMasterFlavorList[findIndex] = copyFindFlavor;
-  //       return {
-  //         masterFlavorList: copyMasterFlavorList,
-  //         // displayList: true,
-  //         displayForm: false,
-  //         selectedFlavor: null,
-  //         announce: ""
-  //       };
-  //     }
-  //   });
-  // }
+  const handleMinusServing = (id) => {
+    dispatch(a.decrementServings(id));
+    const isZeroServings = (props.masterFlavorList[id].servings <= 0);
+    const flavorName = props.masterFlavorList[id].name;
+    if (isZeroServings) {
+      dispatch(a.announce(isZeroServings, flavorName));
+    }
+  }
 
 
   let buttonText = "";
@@ -78,7 +63,7 @@ function InventoryControl(props){
           <FlavorList 
             masterFlavorList={props.masterFlavorList}
             onFlavorSelection={handleDisplayDetails}
-            // onMinusSelection={this.handleMinusServing}
+            onMinusSelection={handleMinusServing}
           />;
       }
     }
@@ -89,7 +74,7 @@ function InventoryControl(props){
 
   return (
     <React.Fragment>
-      {/* <span><p>{this.state.announce}</p></span> */}
+      <span><p>{props.announce}</p></span>
       <button onClick={handleDisplayFormAndList}>{buttonText}</button>
       {currentlyVisibleState}
     </React.Fragment>

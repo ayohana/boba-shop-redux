@@ -25,7 +25,7 @@ function Flavor(props) {
     <React.Fragment>
       <div style={flavorStyle}>
         <h4>
-          {/* <img onClick={() => props.whenMinusClicked(props.id)} src={minusIcon} style={minusIconStyle} alt="Decrease Serving by 1" /> */}
+          <img onClick={() => props.whenMinusClicked(props.id)} src={minusIcon} style={minusIconStyle} alt="Decrease Serving by 1" />
           <span onClick={() => props.whenFlavorClicked(props.id, props.masterFlavorList)} style={textStyle}>
             {props.name} | Remaining servings: {props.servings}
           </span>

@@ -11,7 +11,7 @@ function FlavorList(props) {
         <Flavor 
           masterFlavorList={props.masterFlavorList}
           whenFlavorClicked={props.onFlavorSelection}
-          // whenMinusClicked={props.onMinusSelection}
+          whenMinusClicked={props.onMinusSelection}
           name={flavor.name}
           category={flavor.category}
           brand={flavor.brand}
@@ -28,8 +28,8 @@ function FlavorList(props) {
 
 FlavorList.propTypes = {
   masterFlavorList: PropTypes.objectOf(PropTypes.object),
-  // onFlavorSelection: PropTypes.func,
-  // onMinusSelection: PropTypes.func
+  onFlavorSelection: PropTypes.func,
+  onMinusSelection: PropTypes.func
 };
 
 export default FlavorList;

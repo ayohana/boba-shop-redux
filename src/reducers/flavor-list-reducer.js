@@ -29,15 +29,19 @@ export default (state = initialState.masterFlavorList, action) => {
       return updatedList;
     
     case c.DECREMENT_SERVINGS:
-      const decrementedState = Object.assign(
+      const decrementedFlavor = Object.assign(
+        {},
+        state[id], {
+          servings: (state[id].servings <= 0) ? 0 : state[id].servings - 1
+        }
+      );
+      const decrementedList = Object.assign(
         {},
         state, {
-          [id]: {
-            servings: (state[id].servings <= 0) ? 0 : state[id].servings - 1
-          }
+          [id]: decrementedFlavor
         }
       )
-      return decrementedState;
+      return decrementedList;
 
     default:
       return state;

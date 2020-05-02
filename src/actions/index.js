@@ -62,9 +62,10 @@ export const decrementServings = (id) => {
   }
 }
 
-export const announce = (isZeroServings) => {
+export const announce = (isZeroServings, flavorName) => {
   return {
     type: c.ANNOUNCE_OUT_OF_STOCK,
-    isZeroServings: isZeroServings
+    isZeroServings: isZeroServings,
+    flavorName: flavorName
   }
 }
