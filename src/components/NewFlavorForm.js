@@ -8,7 +8,7 @@ function NewFlavorForm(props) {
     event.preventDefault();
     props.onNewFlavorCreation({
       name: event.target.name.value,
-      type: event.target.type.value,
+      category: event.target.category.value,
       brand: event.target.brand.value,
       price: event.target.price.value,
       weightPurchased: parseFloat(event.target.weightPurchased.value),
@@ -31,12 +31,12 @@ function NewFlavorForm(props) {
           required
         />
 
-        <label htmlFor="type">
-          Type of flavor:
+        <label htmlFor="category">
+          Category of flavor:
         </label>
         <input 
           type="text"
-          name="type"
+          name="category"
           placeholder="Fruit Tea"
           required
         />

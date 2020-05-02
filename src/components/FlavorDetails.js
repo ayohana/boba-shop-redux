@@ -16,7 +16,7 @@ function FlavorDetails(props){
   return (
     <React.Fragment>
       <div style={flavorStyle}>
-        <h3>{flavor.type} | {flavor.name}</h3>
+        <h3>{flavor.category} | {flavor.name}</h3>
         <p>Brand: {flavor.brand}</p>
         <p>Price: ${flavor.price} for {flavor.weightPurchased}lbs</p>
         <p>Remaining servings: {flavor.servings}</p>

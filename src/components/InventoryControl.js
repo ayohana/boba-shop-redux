@@ -26,16 +26,10 @@ function InventoryControl(props){
     dispatch(a.hideDisplayList());
   }
 
-  // handleNewFlavorSubmission = (newFlavor) => {
-  //   const newMasterFlavorList = this.state.masterFlavorList.concat(newFlavor);
-  //   this.setState({
-  //     masterFlavorList: newMasterFlavorList,
-  //     // displayList: true,
-  //     displayForm: false,
-  //     selectedFlavor: null,
-  //     announce: ""
-  //   });
-  // }
+  const handleNewFlavorSubmission = (newFlavor) => {
+    dispatch(a.addOrUpdateFlavor(newFlavor));
+    dispatch(a.resetButton());
+  }
 
   // handleMinusServing = (id) => {
   //   this.setState((prevState) => { 
@@ -76,7 +70,7 @@ function InventoryControl(props){
         buttonText = "Back To All Flavors";
         currentlyVisibleState = 
           <NewFlavorForm 
-            // onNewFlavorCreation={this.handleNewFlavorSubmission} 
+            onNewFlavorCreation={handleNewFlavorSubmission} 
           />;
       } else if (props.displayList) {
         buttonText = "Create New Supply";
