@@ -7,12 +7,12 @@ function FlavorList(props) {
   return (
     <React.Fragment>
       <h3>All Flavors:</h3>
-      {props.masterFlavorList.map((flavor, index) => 
+      {Object.values(props.masterFlavorList).map((flavor) => 
         <Flavor 
-          whenFlavorClicked={props.onFlavorSelection}
-          whenMinusClicked={props.onMinusSelection}
+          // whenFlavorClicked={props.onFlavorSelection}
+          // whenMinusClicked={props.onMinusSelection}
           name={flavor.name}
-          type={flavor.type}
+          category={flavor.category}
           brand={flavor.brand}
           price={flavor.price}
           weightPurchased={flavor.weightPurchased}
@@ -26,9 +26,9 @@ function FlavorList(props) {
 }
 
 FlavorList.propTypes = {
-  masterFlavorList: PropTypes.array,
-  onFlavorSelection: PropTypes.func,
-  onMinusSelection: PropTypes.func
+  masterFlavorList: PropTypes.objectOf(PropTypes.object),
+  // onFlavorSelection: PropTypes.func,
+  // onMinusSelection: PropTypes.func
 };
 
 export default FlavorList;

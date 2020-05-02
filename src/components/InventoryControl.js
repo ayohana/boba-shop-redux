@@ -8,25 +8,12 @@ import { PropTypes } from 'prop-types';
 
 function InventoryControl(props){
 
-  // handleDisplayForm = () => {
-  //   this.setState({
-  //     // displayList: false,
-  //     displayForm: true,
-  //     selectedFlavor: null,
-  //     announce: ""
-  //   });
-  // }
+  const { dispatch } = props;
 
-  // handleDisplayList = () => {
-  //   this.setState({
-  //     // displayList: true,
-  //     displayForm: false,
-  //     selectedFlavor: null,
-  //     announce: ""
-  //   });
-  //   const { dispatch } = this.props;
-  //   dispatch(a.toggleDisplayList);
-  // }
+  const handleDisplayFormAndList = () => {
+    dispatch(a.toggleDisplayForm());
+    dispatch(a.toggleDisplayList());
+  }
 
   // handleDisplayDetails = (id) => {
   //   const selectedFlavor = this.state.masterFlavorList.filter(flavor => flavor.id === id)[0];
@@ -72,35 +59,44 @@ function InventoryControl(props){
   //   });
   // }
 
-  // let currentlyVisibleState = null;
 
-  // if (this.state.displayForm) {
-  //   currentlyVisibleState = 
-  //     <NewFlavorForm 
-  //       onNewFlavorCreation={this.handleNewFlavorSubmission} 
-  //     />
+
   // } else if (this.state.selectedFlavor != null) {
   //   currentlyVisibleState =
   //   <FlavorDetails 
   //     flavor={this.state.selectedFlavor}
   //   />
-  // } else if (this.state.displayList) {
-  //   currentlyVisibleState = 
-  //     <FlavorList 
-  //       masterFlavorList={this.state.masterFlavorList}
-  //       onFlavorSelection={this.handleDisplayDetails}
-  //       onMinusSelection={this.handleMinusServing}
-  //     />;
-  // }
 
+
+  let buttonText = "";
+  let currentlyVisibleState = null;
+
+  const setVisibility = () => {
+    if (props.displayList) {
+      buttonText = "Create New Supply";
+      currentlyVisibleState = 
+        <FlavorList 
+          masterFlavorList={props.masterFlavorList}
+          // onFlavorSelection={this.handleDisplayDetails}
+          // onMinusSelection={this.handleMinusServing}
+        />;
+    } else if (props.displayForm) {
+      buttonText = "Back To All Flavors";
+      currentlyVisibleState = 
+        <NewFlavorForm 
+          // onNewFlavorCreation={this.handleNewFlavorSubmission} 
+        />
+    }
+  }
+
+  setVisibility();
   console.log(props);
 
   return (
     <React.Fragment>
-      {/* <span><p>{this.state.announce}</p></span>
-      <button onClick={this.handleDisplayForm}>New Supply</button>
-      <button onClick={this.handleDisplayList}>All Flavors</button>
-      {currentlyVisibleState} */}
+      {/* <span><p>{this.state.announce}</p></span> */}
+      <button onClick={handleDisplayFormAndList}>{buttonText}</button>
+      {currentlyVisibleState}
     </React.Fragment>
   );
 }
