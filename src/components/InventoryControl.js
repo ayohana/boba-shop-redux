@@ -5,6 +5,11 @@ import FlavorDetails from './FlavorDetails';
 import * as a from '../actions/index';
 import { connect } from 'react-redux';
 
+const announcementStyle = {
+  textAlign: "center",
+  fontSize: "larger",
+}
+
 function InventoryControl(props){
 
   const { dispatch } = props;
@@ -17,12 +22,14 @@ function InventoryControl(props){
       dispatch(a.toggleDisplayForm());
       dispatch(a.toggleDisplayList());
     }
+    dispatch(a.resetAnnouncement());
   }
 
   const handleDisplayDetails = (id, list) => {
     dispatch(a.selectFlavor(id, list));
     dispatch(a.hideDisplayForm());
     dispatch(a.hideDisplayList());
+    dispatch(a.resetAnnouncement());
   }
 
   const handleNewFlavorSubmission = (newFlavor) => {
@@ -36,14 +43,15 @@ function InventoryControl(props){
     const flavorName = props.masterFlavorList[id].name;
     if (isZeroServings) {
       dispatch(a.announce(isZeroServings, flavorName));
+    } else {
+      dispatch(a.resetAnnouncement());
     }
   }
-
 
   let buttonText = "";
   let currentlyVisibleState = null;
 
-  const setVisibility = () => {
+  (function setVisibility() {
     if (props.selectedFlavor != null) {
       buttonText = "Back To All Flavors";
       currentlyVisibleState =
@@ -67,14 +75,11 @@ function InventoryControl(props){
           />;
       }
     }
-  }
-
-  setVisibility();
-  console.log(props);
+  })();
 
   return (
     <React.Fragment>
-      <span><p>{props.announce}</p></span>
+      <span style={announcementStyle}><p>{props.announce}</p></span>
       <button onClick={handleDisplayFormAndList}>{buttonText}</button>
       {currentlyVisibleState}
     </React.Fragment>

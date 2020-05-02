@@ -3,10 +3,8 @@ import Flavor from './Flavor';
 import PropTypes from 'prop-types';
 
 function FlavorList(props) {
-
   return (
     <React.Fragment>
-      <h3>All Flavors:</h3>
       {Object.values(props.masterFlavorList).map((flavor) => 
         <Flavor 
           masterFlavorList={props.masterFlavorList}

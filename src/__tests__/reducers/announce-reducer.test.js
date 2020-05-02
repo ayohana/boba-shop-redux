@@ -21,4 +21,8 @@ describe('announceReducer', () => {
     const result = "BLACK TEA OUT OF STOCK. Please refill as soon as possible.";
     expect(actual).toEqual(result);
   });
+
+  test('With action RESET_ANNOUNCEMENT, announce should return to default state', () => {
+    expect(announceReducer(undefined, { type: c.RESET_ANNOUNCEMENT })).toEqual("");
+  });
 });

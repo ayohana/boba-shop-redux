@@ -9,6 +9,8 @@ export default (state = initialState.announce, action) => {
     case c.ANNOUNCE_OUT_OF_STOCK:
       const msg = `${flavorName.toUpperCase()} OUT OF STOCK. Please refill as soon as possible.`;
       return (isZeroServings) ? msg : "";
+    case c.RESET_ANNOUNCEMENT:
+      return initialState.announce;
     default:
       return state;
     }

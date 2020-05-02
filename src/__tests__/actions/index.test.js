@@ -107,4 +107,9 @@ describe('help queue actions', () => {
     });
   });
 
+  it('resetAnnouncement should create RESET_ANNOUNCEMENT action', () => {
+    expect(a.resetAnnouncement()).toEqual({
+      type: c.RESET_ANNOUNCEMENT,
+    });
+  });
 });

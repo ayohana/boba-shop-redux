@@ -58,3 +58,44 @@ button:hover {
   text-decoration-line: underline;
   text-decoration-style: wavy;
 }
+
+.flavor {
+  background-color: #0F4C81;
+  border-color: #887456;
+  border-style: dotted;
+  padding: 15px;
+  margin: 10px;
+  color: #DBA11C;
+  font-size: large;
+}
+
+.flavor:hover {
+  background-color: #0F4C81;
+  border-color: rgb(114, 179, 236);
+  border-style: dotted;
+  padding: 15px;
+  margin: 10px;
+  color: aliceblue;
+  font-size: x-large;
+}
+
+.minusIconStyle {
+  max-width: 20px;
+}
+
+.minusIconStyle:hover {
+  max-width: 30px;
+}
+
+.flavorText {
+  padding: 10px;
+}
+
+.flavorDetails {
+  background-color: #0F4C81;
+  border-color: #887456;
+  border-style: dotted;
+  padding: 20px;
+  color: #DBA11C;
+  font-size: larger;
+};

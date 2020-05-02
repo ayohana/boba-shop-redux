@@ -69,3 +69,9 @@ export const announce = (isZeroServings, flavorName) => {
     flavorName: flavorName
   }
 }
+
+export const resetAnnouncement = () => {
+  return {
+    type: c.RESET_ANNOUNCEMENT,
+  }
+}
