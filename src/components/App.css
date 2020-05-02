@@ -30,19 +30,31 @@ input[type=submit] {
 }
 
 button {
-  margin: 10px;
-  white-space: pre-line;
-  padding: 10px;
-  border-radius: 4px;
-  width: 15em;
-}
-
-button[type=submit] {
   display: block;
   margin-left: auto;
   margin-right: auto;
   white-space: pre-line;
-  padding: 10px;
-  border-radius: 4px;
+  padding: 20px;
+  border: none;
+  background: none;
   width: 15em;
+  color: #DBA11C;
+  font-size: large;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+}
+
+button:hover {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  white-space: pre-line;
+  padding: 20px;
+  border: none;
+  background: none;
+  width: 15em;
+  color: rgb(241, 241, 230);
+  font-size: larger;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
 }

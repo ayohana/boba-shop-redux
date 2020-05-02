@@ -11,19 +11,20 @@ function InventoryControl(props){
   const { dispatch } = props;
 
   const handleDisplayFormAndList = () => {
-    dispatch(a.toggleDisplayForm());
-    dispatch(a.toggleDisplayList());
+    if (props.selectedFlavor != null) {
+      dispatch(a.resetButton());
+      dispatch(a.resetSelectedFlavor());
+    } else {
+      dispatch(a.toggleDisplayForm());
+      dispatch(a.toggleDisplayList());
+    }
   }
 
-  // handleDisplayDetails = (id) => {
-  //   const selectedFlavor = this.state.masterFlavorList.filter(flavor => flavor.id === id)[0];
-  //   this.setState({
-  //     // displayList: true,
-  //     displayForm: false,
-  //     selectedFlavor: selectedFlavor,
-  //     announce: ""
-  //   });
-  // }
+  const handleDisplayDetails = (id, list) => {
+    dispatch(a.selectFlavor(id, list));
+    dispatch(a.hideDisplayForm());
+    dispatch(a.hideDisplayList());
+  }
 
   // handleNewFlavorSubmission = (newFlavor) => {
   //   const newMasterFlavorList = this.state.masterFlavorList.concat(newFlavor);
@@ -60,32 +61,32 @@ function InventoryControl(props){
   // }
 
 
-
-  // } else if (this.state.selectedFlavor != null) {
-  //   currentlyVisibleState =
-  //   <FlavorDetails 
-  //     flavor={this.state.selectedFlavor}
-  //   />
-
-
   let buttonText = "";
   let currentlyVisibleState = null;
 
   const setVisibility = () => {
-    if (props.displayList) {
-      buttonText = "Create New Supply";
-      currentlyVisibleState = 
-        <FlavorList 
-          masterFlavorList={props.masterFlavorList}
-          // onFlavorSelection={this.handleDisplayDetails}
-          // onMinusSelection={this.handleMinusServing}
-        />;
-    } else if (props.displayForm) {
+    if (props.selectedFlavor != null) {
       buttonText = "Back To All Flavors";
-      currentlyVisibleState = 
-        <NewFlavorForm 
-          // onNewFlavorCreation={this.handleNewFlavorSubmission} 
-        />
+      currentlyVisibleState =
+        <FlavorDetails 
+          flavor={props.selectedFlavor}
+        />;
+    } else {
+      if (props.displayForm) {
+        buttonText = "Back To All Flavors";
+        currentlyVisibleState = 
+          <NewFlavorForm 
+            // onNewFlavorCreation={this.handleNewFlavorSubmission} 
+          />;
+      } else if (props.displayList) {
+        buttonText = "Create New Supply";
+        currentlyVisibleState = 
+          <FlavorList 
+            masterFlavorList={props.masterFlavorList}
+            onFlavorSelection={handleDisplayDetails}
+            // onMinusSelection={this.handleMinusServing}
+          />;
+      }
     }
   }
 

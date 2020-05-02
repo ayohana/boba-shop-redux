@@ -9,7 +9,8 @@ function FlavorList(props) {
       <h3>All Flavors:</h3>
       {Object.values(props.masterFlavorList).map((flavor) => 
         <Flavor 
-          // whenFlavorClicked={props.onFlavorSelection}
+          masterFlavorList={props.masterFlavorList}
+          whenFlavorClicked={props.onFlavorSelection}
           // whenMinusClicked={props.onMinusSelection}
           name={flavor.name}
           category={flavor.category}

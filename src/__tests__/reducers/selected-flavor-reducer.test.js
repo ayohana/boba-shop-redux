@@ -51,4 +51,8 @@ describe("selectedFlavorReducer", () => {
     };
     expect(actual).toEqual(result);
   });
+
+  test('With action RESET_SELECTED_FLAVOR, selectedFlavor should return to default state', () => {
+    expect(selectedFlavorReducer(undefined, { type: c.RESET_SELECTED_FLAVOR })).toEqual(null);
+  });
 });

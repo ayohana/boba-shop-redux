@@ -8,6 +8,18 @@ export const toggleDisplayList = () => ({
   type: c.TOGGLE_DISPLAY_LIST
 });
 
+export const hideDisplayForm = () => ({
+  type: c.HIDE_DISPLAY_FORM
+});
+
+export const hideDisplayList = () => ({
+  type: c.HIDE_DISPLAY_LIST
+});
+
+export const resetButton = () => ({
+  type: c.RESET_BUTTON_TO_DEFAULT
+})
+
 export const addOrUpdateFlavor = (flavor) => {
   const { name, category, brand, price, weightPurchased, servings, id } = flavor;
   return {
@@ -34,6 +46,12 @@ export const selectFlavor = (id, masterFlavorList) => {
     type: c.FLAVOR_DETAILS,
     id: id,
     masterFlavorList: masterFlavorList
+  }
+};
+
+export const resetSelectedFlavor = () => {
+  return {
+    type: c.RESET_SELECTED_FLAVOR
   }
 };
 

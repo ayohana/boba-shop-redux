@@ -11,4 +11,8 @@ describe('displayListReducer', () => {
     expect(displayListReducer(undefined, { type: c.TOGGLE_DISPLAY_LIST })).toEqual(false);
   });
 
+  test('With action RESET_BUTTON_TO_DEFAULT, displayList should return to default state', () => {
+    expect(displayListReducer(undefined, { type: c.RESET_BUTTON_TO_DEFAULT })).toEqual(true);
+  });
+
 });

@@ -18,6 +18,24 @@ describe('help queue actions', () => {
     });
   });
 
+  it('hideDisplayForm should create HIDE_DISPLAY_FORM action', () => {
+    expect(a.hideDisplayForm()).toEqual({
+      type: c.HIDE_DISPLAY_FORM
+    });
+  });
+
+  it('hideDisplayList should create HIDE_DISPLAY_LIST action', () => {
+    expect(a.hideDisplayList()).toEqual({
+      type: c.HIDE_DISPLAY_LIST
+    });
+  });
+
+  it('resetButton should create RESET_BUTTON_TO_DEFAULT action', () => {
+    expect(a.resetButton()).toEqual({
+      type: c.RESET_BUTTON_TO_DEFAULT
+    });
+  });
+
   it('addOrUpdateFlavor should create ADD_OR_UPDATE_FLAVOR action', () => {
     const newFlavorData = {
       name: "Mocha Milk Tea",
@@ -63,6 +81,12 @@ describe('help queue actions', () => {
       type: c.FLAVOR_DETAILS,
       id: testId,
       masterFlavorList: testList
+    });
+  });
+
+  it('resetSelectedFlavor should create RESET_SELECTED_FLAVOR action', () => {
+    expect(a.resetSelectedFlavor()).toEqual({
+      type: c.RESET_SELECTED_FLAVOR,
     });
   });
 
