@@ -2,7 +2,7 @@ import selectedFlavorReducer from '../../reducers/selected-flavor-reducer';
 import * as c from '../../actions/ActionTypes';
 import { v4 } from 'uuid';
 
-describe("selectedFlavorReducer", () => {
+describe.skip("selectedFlavorReducer", () => {
 
   let action;
   const firstId = v4();

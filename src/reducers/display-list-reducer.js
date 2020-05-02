@@ -1,16 +1,10 @@
 import * as c from '../actions/ActionTypes';
 import initialState from '../initialState';
 
-export default (state = initialState, action) => {
+export default (state = initialState.displayList, action) => {
   switch (action.type) {
     case c.TOGGLE_DISPLAY_LIST:
-      const newState = Object.assign(
-        {},
-        state, {
-          displayList: !state.displayList
-        }
-      );
-      return newState;
+      return !state;
     default:
       return state;
     }

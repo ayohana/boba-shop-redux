@@ -1,7 +1,7 @@
 import * as c from '../actions/ActionTypes';
 import initialState from '../initialState';
 
-export default (state = initialState, action) => {
+export default (state = initialState.masterFlavorList, action) => {
 
   const { name, category, brand, price, weightPurchased, servings, id } = action;
 
@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
     case c.ADD_OR_UPDATE_FLAVOR:
       const newMasterFlavorList = Object.assign(
         {},
-        state.masterFlavorList, {
+        state, {
           [id] : {
             name: name,
             category: category,
@@ -21,51 +21,22 @@ export default (state = initialState, action) => {
           }
         }
       );
-      const newState = Object.assign(
-        {},
-        state, {
-          masterFlavorList: newMasterFlavorList
-        }
-      );
-      return newState;
+      return newMasterFlavorList;
 
     case c.DELETE_FLAVOR:
-      const updatedMasterFlavorList = { ...state.masterFlavorList };
-      delete updatedMasterFlavorList[id];
-      const updatedState = Object.assign(
-        {},
-        state, {
-          masterFlavorList: updatedMasterFlavorList
-        }
-      );
-      return updatedState;
+      const updatedList = { ...state };
+      delete updatedList[id];
+      return updatedList;
     
     case c.DECREMENT_SERVINGS:
-      let decrementedState
-      if (state.masterFlavorList[id].servings <= 0) {
-        decrementedState = Object.assign(
-          {},
-          state, {
-            announce: `No more servings of ${state.masterFlavorList[id].name} remaining. Please restock.`
+      const decrementedState = Object.assign(
+        {},
+        state, {
+          [id]: {
+            servings: (state[id].servings <= 0) ? 0 : state[id].servings - 1
           }
-        );
-      } else {
-        const decrementedMasterFlavorList = Object.assign(
-          {},
-          state.masterFlavorList, {
-            [id] : {
-              servings: state.masterFlavorList[id].servings - 1
-            }
-          }
-        );
-        decrementedState = Object.assign(
-          {},
-          state, {
-            announce: "",
-            masterFlavorList: decrementedMasterFlavorList
-          }
-        );
-      }
+        }
+      )
       return decrementedState;
 
     default:
